@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Como Treinar o Seu Dragão</title>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Lemon&display=swap');
+
+    :root {
+      --azul-escuro: #1d4e89;
+      --azul-principal: #0b72d2;
+      --alto-contraste-fundo: #000000;
+      --alto-contraste-texto: #ffffff;
+      --alto-contraste-link: #ffd700;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f4faff;
+      color: #0d1b2a;
+      font-size: 1rem;
+    }
+
+    header {
+      background-color: #ffffff;
+    }
+
+    section {
+      padding-bottom: 5rem;
+    }
+
+    .nav-link {
+      color: var(--azul-escuro);
+      font-weight: 600;
+    }
+
+    .nav-link:hover {
+      color: var(--azul-principal);
+    }
+
+    .nav-img {
+      width: 220px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .img-inicio {
+      max-width: 320px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(11, 114, 210, 0.4);
+      filter: brightness(1.05);
+      transition: all 0.3s ease;
+    }
+
+    .inicio-fundo {
+      background: linear-gradient(135deg, #0b72d2 0%, #1d4e89 100%);
+      border-radius: 60px;
+      padding: 3rem;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .esquerda-conteudo {
+      max-width: 600px;
+    }
+
+    .botao-inicio {
+      background-color: #0b72d2;
+      border: none;
+      border-radius: 30px;
+      padding: 0.8em 1.5em;
+      color: #fff;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
+
+    .botao-inicio:hover {
+      background-color: #1d4e89;
+    }
+
+    h2 {
+      font-family: 'Lemon', serif;
+      font-size: 2.5em;
+      color: #0b72d2;
+    }
+
+    #galeria {
+      background-color: #e7f3ff;
+    }
+
+    footer {
+      background-color: #0b72d2;
+      color: white;
+    }
+
+    /* ===== Menu de acessibilidade ===== */
+    .menu-acessibilidade {
+      position: fixed;
+      top: 2rem;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    .rotacao-botao {
+      transform: rotate(-90deg);
+      transform-origin: right center;
+    }
+
+    .opcoes-acessibilidade {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .opcoes-acessibilidade button {
+      margin-bottom: 5px;
+    }
+
+    .apresenta-lista {
+      display: none;
+    }
+
+    .alto-contraste {
+      background-color: var(--alto-contraste-fundo);
+      color: var(--alto-contraste-texto);
+    }
+
+    .alto-contraste header,
+    .alto-contraste footer,
+    .alto-contraste .formulario {
+      background-color: var(--alto-contraste-fundo);
+      color: var(--alto-contraste-texto);
+    }
+
+    .alto-contraste .nav-link {
+      color: var(--alto-contraste-link);
+    }
+
+    .alto-contraste .botao-inicio,
+    .alto-contraste .formulario button,
+    .alto-contraste .btn-primary {
+      background-color: var(--alto-contraste-link);
+      color: var(--alto-contraste-fundo);
+    }
+
+    .alto-contraste #galeria {
+      background-color: var(--alto-contraste-fundo);
+    }
+
+    @media (max-width: 992px) {
+      .inicio-fundo {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .img-inicio {
+        margin-top: 2rem;
+        max-width: 100%;
+      }
+
+      .nav-img {
+        width: 160px;
+      }
+
+      .botao-inicio {
+        position: static;
+        display: block;
+        margin: 2rem auto 0 auto;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ===== Cabeçalho ===== -->
+  <header class="p-5">
+    <nav class="container d-flex justify-content-between align-items-center">
+      <img
+        src="https://epgrupo.com.br/wp-content/uploads/2023/02/image-4.jpeg"
+        alt="Logo do site Como Treinar o Seu Dragão"
+        class="nav-img img-fluid"
+        loading="lazy">
+
+      <ul class="nav mt-5">
+        <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
+        <li class="nav-item"><a class="nav-link" href="#galeria">Galeria</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+      </ul>
+
+      <!-- ===== Menu de Acessibilidade ===== -->
+      <div id="acessibilidade" class="menu-acessibilidade">
+        <button id="botao-acessibilidade" class="btn btn-primary fw-bold rotacao-botao" aria-expanded="false">
+          acessibilidade
+        </button>
+        <div id="opcoes-acessibilidade" class="opcoes-acessibilidade apresenta-lista">
+          <button id="aumentar-fonte" class="btn btn-primary fw-bold" aria-label="Aumentar o tamanho da fonte">A+</button>
+          <button id="diminuir-fonte" class="btn btn-primary fw-bold" aria-label="Diminuir o tamanho da fonte">A-</button>
+          <button id="alterna-contraste" class="btn btn-primary fw-bold" aria-label="Alternar contraste de cores">
+            <i class="bi bi-shadows"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== Conteúdo Principal ===== -->
+  <main class="container my-5">
+    <!-- ===== Seção Início ===== -->
+    <section id="inicio" class="my-5">
+      <div class="inicio-fundo">
+        <div class="esquerda-conteudo">
+          <h1 class="display-4 fst-italic fw-bold">Bem-vindo ao Mundo dos Dragões</h1>
+          <img
+            src="https://uploads.alternativanerd.com.br/wp-content/uploads/2024/11/AN_Como-Treinar-o-Seu-Dragao-Cartaz.jpg"
+            alt="Pôster do filme Como Treinar o Seu Dragão"
+            class="img-fluid mb-3"
+            style="max-width: 320px; height: auto; border-radius: 10px;"
+            loading="lazy">
+        </div>
+
+        <a href="#tropicalia" class="btn btn-primary btn-lg botao-inicio fw-semibold">
+          Quero treinar meu dragão!
+        </a>
+
+        <img
+          src="https://img.elo7.com.br/product/zoom/264F47B/big-poster-filme-como-treinar-seu-dragao-4-lo03-tam-90x60-cm-presente-geek.jpg"
+          alt="Imagem do Stoick e Hiccup, personagens principais de 'Como Treinar o Seu Dragão'"
+          class="img-fluid img-inicio"
+          loading="lazy">
+      </div>
+    </section>
+
+    <!-- ===== Seção Explicativa ===== -->
+    <section id="tropicalia" class="my-5 pt-6 secao-tropicalia" tabindex="0"
+      aria-label="Seção explicativa sobre o treinamento de dragões">
+      <div class="container d-flex align-items-center">
+        <div class="col-4 d-flex justify-content-center">
+          <img
+            src="https://images.tcdn.com.br/img/img_prod/1053390/painel_redondo_tecido_sublimado_3d_como_treinar_seu_dragao_frd_1381_7615_1_e62bfd1cd87da99afd9f20daaf74d87a.jpg"
+            class="rounded-pill"
+            width="273"
+            height="331"
+            loading="lazy">
+        </div>
+
+        <div class="col-5">
+          <h2>Como Treinar o Seu Dragão?</h2>
+          <p class="p-2">
+            O filme <em>Como Treinar o Seu Dragão</em> é uma história de amizade e superação entre o jovem Viking Hiccup e seu dragão, Banguela.
+            Juntos, eles enfrentam desafios e descobrem que os dragões podem ser aliados poderosos.
+            O treinamento envolve paciência, respeito e compreensão,
+            desafiando antigos preconceitos sobre essas criaturas fantásticas.
+            <b>Fonte:</b> DreamWorks Animation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Galeria ===== -->
+    <section id="galeria" tabindex="0" aria-label="Seção de galeria de imagens">
+      <h2 class="text-center pt-5">Galeria</h2>
+      <div class="container p-3 mt-3 fundo-galeria">
+        <div class="row justify-content-md-center">
+          <div class="col-md-4">
+            <img
+              src="https://preview.redd.it/about-toothless-in-the-hidden-world-v0-m199dlk9yf8e1.jpeg?width=640&crop=smart&auto=webp&s=c568056b472dd9b5ae3c3828dea0ad1bfc2fbd35"
+              class="img-fluid rounded-5" loading="lazy">
+          </div>
+          <div class="col-md-4">
+            <img
+              src="https://preview.redd.it/httyd-1-dragons-fanart-v0-lgp3hebfac2f1.png?width=1080&crop=smart&auto=webp&s=7130ffaf0780f02189b7b87e4ef64d7698972fbe"
+              class="img-fluid rounded-5" loading="lazy">
+          </div>
+        </div>
+        <div class="row mt-4 justify-content-md-center">
+          <div class="col-md-4">
+            <img
+              src="https://veja.abril.com.br/wp-content/uploads/2019/01/dragaob.jpg?quality=70&strip=info&w=1280&h=720&crop=1"
+              class="img-fluid rounded-5" loading="lazy">
+          </div>
+          <div class="col-md-4">
+            <img
+              src="https://veja.abril.com.br/wp-content/uploads/2025/06/2569-D021-00182R.jpg?quality=70&strip=info&w=1280&h=720&crop=1"
+              class="img-fluid rounded-5" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contato ===== -->
+    <section id="contato">
+      <div class="container p-5 d-flex justify-content-center">
+        <div class="col-md-8 col-lg-10 rounded-5 formulario bg-white shadow-lg p-4">
+          <h2 class="mb-3 text-center text-primary">Entre em contato</h2>
+          <form>
+            <div class="form-group mb-3">
+              <label for="nome">Nome</label>
+              <input type="text" id="nome" name="nome" class="form-control rounded-3 mt-1"
+                placeholder="Digite seu nome completo">
+            </div>
+            <div class="form-group mb-3">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" class="form-control rounded-3 mt-1"
+                placeholder="Digite seu email">
+            </div>
+            <div class="form-group mb-3">
+              <label for="mensagem">Mensagem</label>
+              <textarea id="mensagem" name="mensagem" class="form-control rounded-4 mt-2" rows="4"
+                placeholder="Escreva sua mensagem"></textarea>
+            </div>
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary btn-lg rounded-pill">
+                Enviar mensagem
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Rodapé ===== -->
+  <footer class="text-center p-4 fst-italic">
+    <p>Siga-nos nas redes:</p>
+    <i class="bi bi-whatsapp mx-2"></i>
+    <i class="bi bi-instagram mx-2"></i>
+    <i class="bi bi-tiktok mx-2"></i>
+    <p class="mt-3">Desenvolvido por Letícia. Projeto fictício sem fins comerciais.</p>
+  </footer>
+
+  <!-- ===== Script de acessibilidade ===== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const botao = document.getElementById('botao-acessibilidade');
+      const opcoes = document.getElementById('opcoes-acessibilidade');
+      const aumentar = document.getElementById('aumentar-fonte');
+      const diminuir = document.getElementById('diminuir-fonte');
+      const contraste = document.getElementById('alterna-contraste');
+
+      let tamanhoFonte = 1;
+
+      botao.addEventListener('click', function () {
+        botao.classList.toggle('rotacao-botao');
+        opcoes.classList.toggle('apresenta-lista');
+        const expandido = botao.getAttribute('aria-expanded') === 'true';
+        botao.setAttribute('aria-expanded', !expandido);
+      });
+
+      aumentar.addEventListener('click', function () {
+        tamanhoFonte += 0.1;
+        document.body.style.fontSize = `${tamanhoFonte}rem`;
+      });
+
+      diminuir.addEventListener('click', function () {
+        tamanhoFonte -= 0.1;
+        document.body.style.fontSize = `${tamanhoFonte}rem`;
+      });
+
+      contraste.addEventListener('click', function () {
+        document.body.classList.toggle('alto-contraste');
+      });
+    });
+  </script>
+</body>
+</html>
